@@ -5,55 +5,55 @@ const galleryItems = [
   {
     id: 1,
     title: "Professional Coffee Roasting",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&h=400&fit=crop",
     description: "State-of-the-art commercial roasting equipment"
   },
   {
     id: 2,
     title: "Industrial Grain Processing",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1504627298434-2119439bb2c3?w=600&h=400&fit=crop",
     description: "Large-scale grain roasting solutions"
   },
   {
     id: 3,
     title: "Automated Roasting Systems",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&h=400&fit=crop",
     description: "Smart automation for consistent results"
   },
   {
     id: 4,
     title: "Quality Control Lab",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&h=400&fit=crop",
     description: "Testing and quality assurance facilities"
   },
   {
     id: 5,
     title: "Customer Training Center",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1556740714-a8395b3bf30f?w=600&h=400&fit=crop",
     description: "Hands-on training for optimal equipment use"
   },
   {
     id: 6,
     title: "Manufacturing Excellence",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600&h=400&fit=crop",
     description: "Precision manufacturing and assembly"
   },
   {
     id: 7,
     title: "Custom Solutions",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1565894021647-7fb82ab72a58?w=600&h=400&fit=crop",
     description: "Tailored equipment for unique requirements"
   },
   {
     id: 8,
     title: "Global Support Network",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop",
     description: "Worldwide service and maintenance"
   },
   {
     id: 9,
     title: "Installation Services",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?w=600&h=400&fit=crop",
     description: "Professional installation and setup"
   }
 ]

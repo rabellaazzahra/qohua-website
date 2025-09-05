@@ -3,7 +3,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Star, Award, Settings, Zap, Shield, Coffee } from "lucide-react"
+import { Award, Settings, Zap, Shield, Coffee } from "lucide-react"
 import { type ProductData } from "@/lib/data"
 
 interface ProductDialogProps {
@@ -17,10 +17,6 @@ const productDetails: Record<string, {
   specifications: string[]
   features: string[]
   benefits: string[]
-  price: string
-  warranty: string
-  rating: number
-  reviews: number
 }> = {
   "RoastMaster Pro 500": {
     fullDescription: "The RoastMaster Pro 500 represents the pinnacle of coffee roasting technology. Engineered for precision and consistency, this commercial-grade roaster features advanced temperature control systems and automated monitoring to ensure perfect roasting profiles every time.",
@@ -46,11 +42,7 @@ const productDetails: Record<string, {
       "Easy operation and maintenance",
       "Enhanced flavor development",
       "Professional grade reliability"
-    ],
-    price: "$15,500",
-    warranty: "3 years comprehensive warranty",
-    rating: 4.8,
-    reviews: 156
+    ]
   },
   "NutRoast Industrial 1000": {
     fullDescription: "Built for high-volume industrial applications, the NutRoast Industrial 1000 delivers exceptional performance for large-scale nut and seed roasting operations. Its robust construction and advanced heating systems ensure uniform roasting across large batches.",
@@ -76,11 +68,7 @@ const productDetails: Record<string, {
       "Minimal operator intervention",
       "Cost-effective operation",
       "Exceptional durability"
-    ],
-    price: "$45,900",
-    warranty: "5 years industrial warranty",
-    rating: 4.9,
-    reviews: 89
+    ]
   },
   "GrainRoast Automated": {
     fullDescription: "The future of grain roasting is here. Our fully automated GrainRoast system combines cutting-edge technology with intuitive controls to deliver perfect results with minimal human intervention. Ideal for medium to large-scale operations.",
@@ -106,11 +94,7 @@ const productDetails: Record<string, {
       "Predictable maintenance",
       "Superior quality control",
       "Remote operation capability"
-    ],
-    price: "$38,200",
-    warranty: "4 years full coverage",
-    rating: 4.7,
-    reviews: 203
+    ]
   },
   "EspressoRoast Compact": {
     fullDescription: "Perfect for boutique coffee shops and small-scale roasters, the EspressoRoast Compact delivers professional-grade results in a space-saving design. Experience the perfect balance of quality, efficiency, and affordability.",
@@ -136,11 +120,7 @@ const productDetails: Record<string, {
       "User-friendly operation",
       "Consistent quality",
       "Affordable investment"
-    ],
-    price: "$8,750",
-    warranty: "2 years standard warranty",
-    rating: 4.6,
-    reviews: 124
+    ]
   },
   "MegaRoast Industrial 2000": {
     fullDescription: "The ultimate solution for large-scale commercial operations. The MegaRoast Industrial 2000 combines massive capacity with precision control, delivering consistent results across enormous batches while maintaining the highest quality standards.",
@@ -166,11 +146,7 @@ const productDetails: Record<string, {
       "Consistent large-batch quality",
       "Minimal labor requirements",
       "Maximum ROI potential"
-    ],
-    price: "$89,500",
-    warranty: "5 years premium warranty",
-    rating: 4.9,
-    reviews: 67
+    ]
   }
 }
 
@@ -182,70 +158,70 @@ export default function ProductDialog({ product, isOpen, onClose }: ProductDialo
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95vw] sm:max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-card via-card to-muted mx-4 sm:mx-auto">
-        <DialogHeader className="pb-4 border-b border-border/20">
-          <div className="flex items-start gap-4">
-            <div className="flex-1">
-              <DialogTitle className="text-2xl font-bold text-foreground mb-2 flex items-center gap-2">
-                <Coffee className="w-6 h-6 text-primary" />
-                {product.title}
-              </DialogTitle>
-              <div className="flex items-center gap-4 mb-3">
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className={`w-4 h-4 ${i < Math.floor(details.rating) ? 'text-yellow-500 fill-yellow-500' : 'text-muted-foreground'}`}
-                    />
-                  ))}
-                  <span className="text-sm font-medium ml-1">{details.rating}</span>
-                  <span className="text-sm text-muted-foreground">({details.reviews} reviews)</span>
+      <DialogContent className="max-w-[calc(100vw-40px)] sm:max-w-4xl max-h-[90vh] overflow-hidden bg-background border border-border shadow-xl">
+        <div className="overflow-y-auto max-h-[85vh] scrollbar-hide">
+          <DialogHeader className="pb-6 border-b border-border">
+            <div className="flex items-start gap-4">
+              <div className="flex-1">
+                <DialogTitle className="text-2xl sm:text-3xl font-bold text-foreground mb-3 flex items-center gap-3">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <Coffee className="w-6 h-6 text-primary" />
+                  </div>
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{product.title}</span>
+                </DialogTitle>
+                <div className="flex items-center gap-4 mb-4">
+                  <Badge className="bg-primary/15 text-primary border-primary/30 hover:bg-primary/25">
+                    <Award className="w-3 h-3 mr-1" />
+                    Premium Quality
+                  </Badge>
                 </div>
-                <Badge variant="secondary" className="bg-primary/10 text-primary">
-                  <Award className="w-3 h-3 mr-1" />
-                  Premium
-                </Badge>
               </div>
             </div>
-            <div className="text-right">
-              <div className="text-3xl font-bold text-primary mb-1">{details.price}</div>
-              <div className="text-sm text-muted-foreground">{details.warranty}</div>
-            </div>
-          </div>
-        </DialogHeader>
+          </DialogHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-8">
           {/* Left Column - Image and Description */}
           <div className="space-y-6">
-            <div className="relative group">
+            <div className="relative group hover:scale-[1.02] transition-transform duration-300">
               <img 
-                src={product.image || "/placeholder.svg"} 
+                src={product.image || "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&h=600&fit=crop"} 
                 alt={product.title}
-                className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-72 object-cover rounded-2xl shadow-lg border border-border"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
             </div>
             
-            <div className="prose prose-sm max-w-none">
-              <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-                <Coffee className="w-5 h-5 text-primary" />
-                Overview
+            <div className="bg-muted p-6 rounded-2xl border border-border">
+              <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-3">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Coffee className="w-5 h-5 text-primary" />
+                </div>
+                Product Overview
               </h3>
-              <p className="text-muted-foreground leading-relaxed">{details.fullDescription}</p>
+              <p className="text-muted-foreground leading-relaxed text-base">{details.fullDescription}</p>
             </div>
 
-            <div className="grid grid-cols-3 gap-4 p-4 bg-muted/30 rounded-lg">
-              <div className="text-center">
-                <Zap className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-sm font-medium text-foreground">High Performance</div>
+            <div className="grid grid-cols-3 gap-4">
+              <div className="bg-muted p-4 rounded-xl text-center border border-border hover:bg-secondary transition-colors duration-200">
+                <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-3">
+                  <Zap className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-sm font-semibold text-foreground">High Performance</div>
+                <div className="text-xs text-muted-foreground mt-1">Superior efficiency</div>
               </div>
-              <div className="text-center">
-                <Settings className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-sm font-medium text-foreground">Advanced Control</div>
+              <div className="bg-muted p-4 rounded-xl text-center border border-border hover:bg-secondary transition-colors duration-200">
+                <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-3">
+                  <Settings className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-sm font-semibold text-foreground">Advanced Control</div>
+                <div className="text-xs text-muted-foreground mt-1">Precise monitoring</div>
               </div>
-              <div className="text-center">
-                <Shield className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-sm font-medium text-foreground">Reliable Quality</div>
+              <div className="bg-muted p-4 rounded-xl text-center border border-border hover:bg-secondary transition-colors duration-200">
+                <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-3">
+                  <Shield className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-sm font-semibold text-foreground">Reliable Quality</div>
+                <div className="text-xs text-muted-foreground mt-1">Consistent results</div>
               </div>
             </div>
           </div>
@@ -253,65 +229,76 @@ export default function ProductDialog({ product, isOpen, onClose }: ProductDialo
           {/* Right Column - Specifications and Features */}
           <div className="space-y-6">
             {/* Specifications */}
-            <div className="bg-card/50 p-5 rounded-lg border border-border/20">
-              <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-                <Settings className="w-5 h-5 text-primary" />
+            <div className="bg-muted p-6 rounded-2xl border border-border hover:bg-secondary transition-colors duration-200">
+              <h3 className="text-xl font-bold text-foreground mb-5 flex items-center gap-3">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Settings className="w-5 h-5 text-primary" />
+                </div>
                 Technical Specifications
               </h3>
-              <ul className="space-y-2">
+              <div className="space-y-3">
                 {details.specifications.map((spec, index) => (
-                  <li key={index} className="text-sm text-muted-foreground border-b border-border/10 pb-1 last:border-0">
-                    {spec}
-                  </li>
+                  <div key={index} className="flex justify-between items-center py-2 border-b border-border last:border-0">
+                    <span className="text-muted-foreground text-sm font-medium">{spec.split(':')[0]}:</span>
+                    <span className="text-foreground font-semibold text-sm">{spec.split(':')[1]}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
             {/* Key Features */}
-            <div className="bg-card/50 p-5 rounded-lg border border-border/20">
-              <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-                <Zap className="w-5 h-5 text-primary" />
+            <div className="bg-muted p-6 rounded-2xl border border-border hover:bg-secondary transition-colors duration-200">
+              <h3 className="text-xl font-bold text-foreground mb-5 flex items-center gap-3">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Zap className="w-5 h-5 text-primary" />
+                </div>
                 Key Features
               </h3>
-              <ul className="space-y-2">
+              <div className="space-y-3">
                 {details.features.map((feature, index) => (
-                  <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    {feature}
-                  </li>
+                  <div key={index} className="flex items-start gap-3 group">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0 group-hover:scale-125 transition-transform" />
+                    <span className="text-muted-foreground text-sm leading-relaxed">{feature}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
             {/* Benefits */}
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-5 rounded-lg border border-primary/20">
-              <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-                <Award className="w-5 h-5 text-primary" />
+            <div className="bg-gradient-to-br from-secondary to-muted p-6 rounded-2xl border border-border hover:from-muted hover:to-secondary transition-colors duration-200">
+              <h3 className="text-xl font-bold text-foreground mb-5 flex items-center gap-3">
+                <div className="p-2 bg-primary/20 rounded-lg">
+                  <Award className="w-5 h-5 text-primary" />
+                </div>
                 Key Benefits
               </h3>
-              <ul className="space-y-2">
+              <div className="space-y-3">
                 {details.benefits.map((benefit, index) => (
-                  <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    {benefit}
-                  </li>
+                  <div key={index} className="flex items-start gap-3 group">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0 group-hover:scale-125 transition-transform" />
+                    <span className="text-foreground text-sm font-medium leading-relaxed">{benefit}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-border/20">
-          <Button className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground font-medium">
+        <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-border">
+          <Button className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-semibold py-3 px-6 rounded-xl">
+            <Coffee className="w-4 h-4 mr-2" />
             Request Quote
           </Button>
-          <Button variant="outline" className="flex-1 border-primary/20 hover:bg-primary/5">
+          <Button variant="secondary" className="flex-1 text-base font-semibold py-3 px-6 rounded-xl">
+            <Award className="w-4 h-4 mr-2" />
             Download Brochure
           </Button>
-          <Button variant="secondary" className="flex-1">
+          <Button variant="secondary" className="flex-1 text-base font-semibold py-3 px-6 rounded-xl">
+            <Settings className="w-4 h-4 mr-2" />
             Schedule Demo
           </Button>
+        </div>
         </div>
       </DialogContent>
     </Dialog>
