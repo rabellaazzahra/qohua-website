@@ -1,8 +1,14 @@
+"use client"
+
+import { useInView } from "@/hooks/useInView"
+
 export default function Footer() {
+  const [ref, isInView] = useInView()
+
   return (
-    <footer className="bg-sidebar text-sidebar-foreground py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
+    <footer ref={ref} className="bg-sidebar text-sidebar-foreground py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`grid md:grid-cols-4 gap-8 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-sidebar-primary">RoastPro</h3>

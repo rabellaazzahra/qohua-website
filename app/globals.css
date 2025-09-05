@@ -4,45 +4,41 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0); /* #ffffff */
-  --foreground: oklch(0.278 0.013 258.338); /* #374151 */
-  --card: oklch(0.98 0.02 45.5); /* #f7f3f0 - warm cream */
-  --card-foreground: oklch(0.278 0.013 258.338); /* #374151 */
-  --popover: oklch(0.98 0.02 45.5); /* #f7f3f0 */
-  --popover-foreground: oklch(0.278 0.013 258.338); /* #374151 */
-  /* Updated primary color to rich coffee brown */
-  --primary: oklch(0.25 0.12 35.2); /* #5d4037 - deep espresso brown */
-  --primary-foreground: oklch(1 0 0); /* #ffffff */
-  /* Updated secondary to warm caramel brown */
-  --secondary: oklch(0.35 0.15 40.8); /* #8d6e63 - rich mocha */
-  --secondary-foreground: oklch(1 0 0); /* #ffffff */
-  --muted: oklch(0.98 0.02 45.5); /* #f7f3f0 */
-  --muted-foreground: oklch(0.278 0.013 258.338); /* #374151 */
-  /* Updated accent to golden brown */
-  --accent: oklch(0.45 0.18 42.5); /* #a1887f - warm coffee bean brown */
-  --accent-foreground: oklch(1 0 0); /* #ffffff */
-  --destructive: oklch(0.577 0.245 27.325); /* #dc2626 */
-  --destructive-foreground: oklch(1 0 0); /* #ffffff */
-  --border: oklch(0.922 0.013 258.338); /* #e5e7eb */
-  --input: oklch(1 0 0); /* #ffffff */
-  /* Updated ring color to match coffee theme */
-  --ring: oklch(0.25 0.12 35.2); /* #5d4037 */
-  /* Updated chart colors to coffee theme palette */
-  --chart-1: oklch(0.25 0.12 35.2); /* #5d4037 - coffee brown */
-  --chart-2: oklch(0.35 0.15 40.8); /* #8d6e63 - caramel */
-  --chart-3: oklch(0.45 0.18 42.5); /* #cd853f - golden brown */
-  --chart-4: oklch(0.18 0.08 30.5); /* #3e2723 - dark roast */
-  --chart-5: oklch(0.55 0.12 48.2); /* #bcaaa4 - light coffee */
+  /* Modern White Theme */
+  --background: #ffffff; /* Pure white background */
+  --foreground: #0f172a; /* Dark slate for text */
+  --card: #ffffff; /* White cards */
+  --card-foreground: #0f172a; /* Dark text on cards */
+  --popover: #ffffff; /* White popover background */
+  --popover-foreground: #0f172a; /* Dark text in popovers */
+  /* Primary blue theme */
+  --primary: #3b82f6; /* Blue 500 */
+  --primary-foreground: #ffffff; /* White text on primary */
+  --secondary: #f1f5f9; /* Slate 100 */
+  --secondary-foreground: #0f172a; /* Dark text on secondary */
+  --muted: #f8fafc; /* Slate 50 */
+  --muted-foreground: #64748b; /* Slate 500 */
+  --accent: #1e40af; /* Blue 800 */
+  --accent-foreground: #ffffff; /* White text on accent */
+  --destructive: #dc2626; /* Red 600 */
+  --destructive-foreground: #ffffff; /* White */
+  --border: #e2e8f0; /* Slate 200 */
+  --input: #ffffff; /* White input background */
+  --ring: #3b82f6; /* Blue 500 focus ring */
+  --chart-1: #3b82f6; /* Blue 500 */
+  --chart-2: #1e40af; /* Blue 800 */
+  --chart-3: #1e293b; /* Slate 800 */
+  --chart-4: #475569; /* Slate 600 */
+  --chart-5: #94a3b8; /* Slate 400 */
   --radius: 0.5rem;
-  /* Updated sidebar colors to match coffee theme */
-  --sidebar: oklch(0.98 0.02 45.5); /* #faf8f5 */
-  --sidebar-foreground: oklch(0.278 0.013 258.338); /* #374151 */
-  --sidebar-primary: oklch(0.25 0.12 35.2); /* #8b4513 */
-  --sidebar-primary-foreground: oklch(1 0 0); /* #ffffff */
-  --sidebar-accent: oklch(0.35 0.15 40.8); /* #d2691e */
-  --sidebar-accent-foreground: oklch(1 0 0); /* #ffffff */
-  --sidebar-border: oklch(0.922 0.013 258.338); /* #e5e7eb */
-  --sidebar-ring: oklch(0.25 0.12 35.2); /* #8b4513 */
+  --sidebar: #1e293b; /* Slate 800 */
+  --sidebar-foreground: #f1f5f9; /* Slate 100 */
+  --sidebar-primary: #3b82f6; /* Blue 500 */
+  --sidebar-primary-foreground: #ffffff; /* White */
+  --sidebar-accent: #334155; /* Slate 700 */
+  --sidebar-accent-foreground: #f1f5f9; /* Slate 100 */
+  --sidebar-border: #475569; /* Slate 600 */
+  --sidebar-ring: #3b82f6; /* Blue 500 */
 }
 
 .dark {
@@ -125,5 +121,41 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Font families */
+  .font-nunito { font-family: var(--font-nunito), sans-serif; }
+  .font-plus-jakarta { font-family: var(--font-plus-jakarta-sans), sans-serif; }
+  
+  /* Coffee theme colors */
+  .bg-coffee-50 { background-color: rgba(242, 206, 174, 0.1); }
+  .bg-coffee-100 { background-color: rgba(242, 206, 174, 0.3); }
+  .bg-coffee-200 { background-color: rgba(242, 206, 174, 0.5); }
+  .bg-coffee-600 { background-color: #BF7E04; }
+  .bg-coffee-700 { background-color: #A65D03; }
+  .bg-coffee-800 { background-color: #8B4513; }
+  .bg-coffee-900 { background-color: #654321; }
+  
+  .text-coffee-600 { color: #BF7E04; }
+  .text-coffee-700 { color: #A65D03; }
+  .text-coffee-800 { color: #8B4513; }
+  .text-coffee-900 { color: #654321; }
+  
+  .border-coffee-200 { border-color: rgba(242, 206, 174, 0.5); }
+  
+  .bg-cream-100 { background-color: rgba(242, 206, 174, 0.2); }
+  
+  /* Cursor pointer for interactive elements */
+  .cursor-pointer { cursor: pointer; }
+  
+  /* Navigation and button styles */
+  nav a, button, .clickable { cursor: pointer; }
+  
+  /* Heading styles */
+  h1, h2, h3, h4, h5, h6, .heading { 
+    font-family: var(--font-plus-jakarta-sans), sans-serif; 
+    color: #1a1a1a;
   }
 }

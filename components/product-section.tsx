@@ -1,95 +1,134 @@
 "use client"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { useInView } from "@/hooks/useInView"
+import ProductDialog from "@/components/product-dialog"
+import { productData, type ProductData } from "@/lib/data"
 
-const products = [
-  {
-    id: 1,
-    name: "RoastMaster Pro 500",
-    image: "/placeholder-ar10l.png",
-    shortDescription: "Professional coffee roasting machine with precise temperature control",
-    fullDescription:
-      "The RoastMaster Pro 500 is our flagship coffee roasting machine, designed for commercial operations. Features include: digital temperature control, automated roasting profiles, 500kg capacity per batch, energy-efficient heating system, and comprehensive safety features. Perfect for coffee shops, roasteries, and medium-scale production facilities.",
-    position: "left",
-  },
-  {
-    id: 2,
-    name: "NutRoast Industrial 1000",
-    image: "/placeholder-avqb4.png",
-    shortDescription: "High-capacity industrial roasting system for nuts and seeds",
-    fullDescription:
-      "The NutRoast Industrial 1000 handles large-scale nut and seed roasting operations. Key features: 1000kg hourly capacity, continuous conveyor system, multi-zone temperature control, automated sorting system, and food-grade stainless steel construction. Ideal for food processing plants and large-scale manufacturers.",
-    position: "right",
-  },
-  {
-    id: 3,
-    name: "GrainRoast Automated",
-    image: "/automated-grain-roaster.png",
-    shortDescription: "Fully automated grain roasting system with digital controls",
-    fullDescription:
-      "The GrainRoast Automated system revolutionizes grain processing with full automation. Features include: PLC-controlled operation, recipe management system, moisture content monitoring, variable speed controls, and remote monitoring capabilities. Perfect for cereal manufacturers and grain processing facilities.",
-    position: "left",
-  },
-]
+function ProductItem({ product, index, isReversed }: { 
+  product: ProductData, 
+  index: number,
+  isReversed: boolean 
+}) {
+  const [itemRef, itemInView] = useInView<HTMLDivElement>({ threshold: 0.1 })
+  const [selectedProduct, setSelectedProduct] = useState<typeof product | null>(null)
+  
+  return (
+    <>
+      <div
+        ref={itemRef}
+        data-product-id={product.id}
+        className={`flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8 lg:gap-12 transition-all duration-1000 ${
+          itemInView 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-12'
+        }`}
+        style={{ transitionDelay: `${index * 200}ms` }}
+      >
+        {/* Product Image */}
+        <div className="w-full lg:w-1/2">
+          <div className="relative group overflow-hidden rounded-2xl shadow-2xl">
+            <img
+              src={product.image || "/placeholder.svg"}
+              alt={product.title}
+              className="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            
+            {/* Coffee Steam Effect */}
+            <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="flex space-x-1">
+                {[...Array(3)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-1 h-12 bg-gradient-to-t from-primary/60 to-transparent rounded-full animate-pulse"
+                    style={{ animationDelay: `${i * 200}ms` }}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Product Content */}
+        <div className="w-full lg:w-1/2 space-y-6">
+          <div className="space-y-4">
+            <h3 className="text-3xl lg:text-4xl font-plus-jakarta font-bold text-foreground leading-tight">
+              {product.title}
+            </h3>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {product.description}
+            </p>
+          </div>
+
+          {/* Features */}
+          <div className="flex flex-wrap gap-3">
+            {product.features.map((feature, idx) => (
+              <span
+                key={idx}
+                className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold border border-primary/20"
+              >
+                {feature}
+              </span>
+            ))}
+          </div>
+
+          <Button 
+            onClick={() => setSelectedProduct(product)}
+            className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold px-8 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          >
+            Learn More
+          </Button>
+        </div>
+      </div>
+
+      <ProductDialog 
+        product={selectedProduct}
+        isOpen={!!selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
+    </>
+  )
+}
 
 export default function ProductSection() {
+  const [headerRef, headerInView] = useInView<HTMLDivElement>({ threshold: 0.2 })
+  
   return (
-    <section id="products" className="py-16 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="products" className="py-20 bg-muted/30">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Our Premium Roasting Equipment</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-20 transition-all duration-1000 ${
+            headerInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="inline-flex items-center gap-4 mb-6">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 rounded-full bg-white/30" />
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-plus-jakarta font-bold text-foreground">
+              Our Premium Roasting Equipment
+            </h2>
+          </div>
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Discover our comprehensive range of professional roasting equipment designed for commercial and industrial
             applications. Each machine is engineered for precision, efficiency, and reliability.
           </p>
         </div>
 
-        {/* Product Showcases */}
-        <div className="space-y-24">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className={`flex flex-col ${
-                product.position === "right" ? "lg:flex-row-reverse" : "lg:flex-row"
-              } items-center gap-12`}
-            >
-              {/* Product Image */}
-              <div className="flex-1">
-                <img
-                  src={product.image || "/placeholder.svg"}
-                  alt={product.name}
-                  className="w-full h-96 object-cover rounded-lg shadow-lg"
-                />
-              </div>
-
-              {/* Product Description */}
-              <div className="flex-1 space-y-6">
-                <h3 className="text-3xl font-bold text-foreground">{product.name}</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">{product.shortDescription}</p>
-
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button size="lg" className="bg-primary hover:bg-primary/90">
-                      Learn More
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-2xl">
-                    <DialogHeader>
-                      <DialogTitle className="text-2xl">{product.name}</DialogTitle>
-                    </DialogHeader>
-                    <div className="space-y-4">
-                      <img
-                        src={product.image || "/placeholder.svg"}
-                        alt={product.name}
-                        className="w-full h-64 object-cover rounded-lg"
-                      />
-                      <p className="text-muted-foreground leading-relaxed">{product.fullDescription}</p>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              </div>
-            </div>
+        {/* Product List - Alternating Layout */}
+        <div className="space-y-20 lg:space-y-32">
+          {productData.map((product, index) => (
+            <ProductItem 
+              key={product.id} 
+              product={product} 
+              index={index}
+              isReversed={index % 2 !== 0}
+            />
           ))}
         </div>
       </div>

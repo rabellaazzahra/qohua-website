@@ -1,8 +1,10 @@
 import Navbar from "@/components/navbar"
 import HeroCarousel from "@/components/hero-carousel"
 import ProductSection from "@/components/product-section"
+import GallerySection from "@/components/gallery-section"
 import VideoSection from "@/components/video-section"
-import CompanyInfo from "@/components/company-info"
+import AboutSection from "@/components/about-section"
+import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
 
 export default function Home() {
@@ -11,8 +13,10 @@ export default function Home() {
       <Navbar />
       <HeroCarousel />
       <ProductSection />
+      <GallerySection />
       <VideoSection />
-      <CompanyInfo />
+      <AboutSection />
+      <ContactSection />
       <Footer />
     </main>
   )
