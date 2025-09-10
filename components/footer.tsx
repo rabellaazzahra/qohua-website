@@ -101,7 +101,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-sidebar-border mt-8 pt-8 text-center text-sm">
-          <p>&copy; 2024 RoastPro Equipment. All rights reserved.</p>
+          <p>&copy; 2025 Qohua Project - Qimtronics. All rights reserved.</p>
         </div>
       </div>
     </footer>

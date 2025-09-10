@@ -18,8 +18,8 @@ const productDetails: Record<string, {
   features: string[]
   benefits: string[]
 }> = {
-  "RoastMaster Pro 500": {
-    fullDescription: "The RoastMaster Pro 500 represents the pinnacle of coffee roasting technology. Engineered for precision and consistency, this commercial-grade roaster features advanced temperature control systems and automated monitoring to ensure perfect roasting profiles every time.",
+  "Roastrix 400 Reguler": {
+    fullDescription: "The Roastrix 400 Reguler represents the pinnacle of coffee roasting technology. Engineered for precision and consistency, this commercial-grade roaster features advanced temperature control systems and automated monitoring to ensure perfect roasting profiles every time.",
     specifications: [
       "Capacity: 500g batch size",
       "Temperature Range: 100°C - 250°C",
@@ -44,8 +44,8 @@ const productDetails: Record<string, {
       "Professional grade reliability"
     ]
   },
-  "NutRoast Industrial 1000": {
-    fullDescription: "Built for high-volume industrial applications, the NutRoast Industrial 1000 delivers exceptional performance for large-scale nut and seed roasting operations. Its robust construction and advanced heating systems ensure uniform roasting across large batches.",
+  "Roastrix 400 Pro": {
+    fullDescription: "Built for high-volume industrial applications, the Roastrix 400 Pro delivers exceptional performance for large-scale grain roasting operations. Its robust construction and advanced heating systems ensure uniform roasting across large batches.",
     specifications: [
       "Capacity: 1000kg batch size", 
       "Temperature Range: 80°C - 220°C",
@@ -70,8 +70,8 @@ const productDetails: Record<string, {
       "Exceptional durability"
     ]
   },
-  "GrainRoast Automated": {
-    fullDescription: "The future of grain roasting is here. Our fully automated GrainRoast system combines cutting-edge technology with intuitive controls to deliver perfect results with minimal human intervention. Ideal for medium to large-scale operations.",
+  "Pourfect 60": {
+    fullDescription: "The future of grain roasting is here. Our fully automated Pourfect 60 system combines cutting-edge technology with intuitive controls to deliver perfect results with minimal human intervention. Ideal for medium to large-scale operations.",
     specifications: [
       "Capacity: 750kg batch size",
       "Temperature Range: 90°C - 200°C", 
@@ -96,8 +96,8 @@ const productDetails: Record<string, {
       "Remote operation capability"
     ]
   },
-  "EspressoRoast Compact": {
-    fullDescription: "Perfect for boutique coffee shops and small-scale roasters, the EspressoRoast Compact delivers professional-grade results in a space-saving design. Experience the perfect balance of quality, efficiency, and affordability.",
+  "Koffie Buddy": {
+    fullDescription: "Perfect for boutique coffee shops and small-scale roasters, the Koffie Buddy delivers professional-grade results in a space-saving design. Experience the perfect balance of quality, efficiency, and affordability.",
     specifications: [
       "Capacity: 250g batch size",
       "Temperature Range: 120°C - 240°C",
@@ -122,8 +122,8 @@ const productDetails: Record<string, {
       "Affordable investment"
     ]
   },
-  "MegaRoast Industrial 2000": {
-    fullDescription: "The ultimate solution for large-scale commercial operations. The MegaRoast Industrial 2000 combines massive capacity with precision control, delivering consistent results across enormous batches while maintaining the highest quality standards.",
+  "I Scale uno electric": {
+    fullDescription: "The ultimate solution for large-scale commercial operations. The I Scale uno electric combines massive capacity with precision control, delivering consistent results across enormous batches while maintaining the highest quality standards.",
     specifications: [
       "Capacity: 2000kg batch size",
       "Temperature Range: 70°C - 230°C",
@@ -282,22 +282,6 @@ export default function ProductDialog({ product, isOpen, onClose }: ProductDialo
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-border">
-          <Button className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-semibold py-3 px-6 rounded-xl">
-            <Coffee className="w-4 h-4 mr-2" />
-            Request Quote
-          </Button>
-          <Button variant="secondary" className="flex-1 text-base font-semibold py-3 px-6 rounded-xl">
-            <Award className="w-4 h-4 mr-2" />
-            Download Brochure
-          </Button>
-          <Button variant="secondary" className="flex-1 text-base font-semibold py-3 px-6 rounded-xl">
-            <Settings className="w-4 h-4 mr-2" />
-            Schedule Demo
-          </Button>
         </div>
         </div>
       </DialogContent>

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Coffee, Home, Package, Info, Headphones, Phone } from "lucide-react"
+import { Menu, X, Home, Package, Info, Headphones, Phone } from "lucide-react"
 import { navigationItems, companyInfo } from "@/lib/data"
 
 export default function Navbar() {
@@ -34,7 +34,7 @@ export default function Navbar() {
       case 'Contact':
         return <Phone className={iconClass} />
       default:
-        return <Coffee className={iconClass} />
+        return <Package className={iconClass} />
     }
   }
 
@@ -46,13 +46,13 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
-                <Coffee className="w-6 h-6 text-primary-foreground" />
+                <Package className="w-6 h-6 text-primary-foreground" />
               </div>
               <div>
                 <h1 className="text-2xl font-plus-jakarta font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   {companyInfo.name}
                 </h1>
-                <p className="text-xs text-muted-foreground font-medium">Premium Coffee Equipment</p>
+                <p className="text-xs text-muted-foreground font-medium">From Green Bean to the cup</p>
               </div>
             </div>
           </div>
@@ -70,12 +70,6 @@ export default function Navbar() {
                   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300 rounded-full" />
                 </button>
               ))}
-              <div className="ml-6 pl-6 border-l border-border">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-full font-semibold shadow-sm hover:shadow-md">
-                  <Coffee className="w-4 h-4 mr-2" />
-                  Get Quote
-                </Button>
-              </div>
             </div>
           </div>
 
@@ -110,14 +104,6 @@ export default function Navbar() {
                 {item.name}
               </button>
             ))}
-            <div className={`pt-4 border-t border-border mt-4 transform transition-all duration-300 ${
-              isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-            }`} style={{ transitionDelay: `${navigationItems.length * 50}ms` }}>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4 rounded-xl font-semibold shadow-sm">
-                <Coffee className="w-4 h-4 mr-2" />
-                Get Quote
-              </Button>
-            </div>
           </div>
         </div>
       </div>

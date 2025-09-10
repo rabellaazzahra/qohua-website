@@ -4,95 +4,95 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Modern Coffee Theme - Warm and Inviting */
-  --background: #fdfcfb; /* Warm cream white */
-  --foreground: #2d1810; /* Rich coffee brown */
-  --card: #ffffff; /* Pure white cards */
-  --card-foreground: #2d1810; /* Coffee brown on cards */
-  --popover: #ffffff; /* White popover */
-  --popover-foreground: #2d1810; /* Coffee brown in popovers */
+  /* Rich Coffee Theme - Deep and Warm */
+  --background: #faf8f5; /* Warm coffee cream background */
+  --foreground: #3c2415; /* Deep espresso brown */
+  --card: #f8f5f0; /* Light coffee cream cards */
+  --card-foreground: #3c2415; /* Deep espresso on cards */
+  --popover: #f8f5f0; /* Light coffee cream popover */
+  --popover-foreground: #3c2415; /* Deep espresso in popovers */
   
-  /* Coffee-inspired primary colors */
-  --primary: #8B4513; /* Rich coffee brown */
-  --primary-foreground: #fdfcfb; /* Cream text on primary */
-  --secondary: #f5f1eb; /* Light coffee cream */
-  --secondary-foreground: #2d1810; /* Coffee brown on secondary */
-  --muted: #f7f3ee; /* Very light coffee */
-  --muted-foreground: #6b5b4f; /* Medium coffee brown */
+  /* Rich coffee-inspired primary colors */
+  --primary: #6F4E37; /* Deep coffee brown (coffee bean) */
+  --primary-foreground: #faf8f5; /* Warm cream text on primary */
+  --secondary: #e8ddd0; /* Warm coffee with milk */
+  --secondary-foreground: #3c2415; /* Deep espresso on secondary */
+  --muted: #f0ebe2; /* Light latte */
+  --muted-foreground: #8b6f47; /* Medium coffee brown */
   
-  /* Accent colors - golden coffee highlights */
-  --accent: #d2691e; /* Golden coffee */
-  --accent-foreground: #fdfcfb; /* Cream text on accent */
+  /* Accent colors - rich coffee highlights */
+  --accent: #A0522D; /* Sienna coffee */
+  --accent-foreground: #faf8f5; /* Warm cream text on accent */
   
   /* Status colors */
   --destructive: #dc2626; /* Red for errors */
   --destructive-foreground: #ffffff; /* White text */
   
   /* UI elements */
-  --border: #e6ddd4; /* Coffee cream border */
-  --input: #ffffff; /* White inputs */
-  --ring: #d2691e; /* Golden coffee focus ring */
+  --border: #d4c4a8; /* Warm coffee border */
+  --input: #f8f5f0; /* Light coffee cream inputs */
+  --ring: #A0522D; /* Sienna coffee focus ring */
   
-  /* Chart colors - coffee palette */
-  --chart-1: #8B4513; /* Coffee brown */
-  --chart-2: #d2691e; /* Golden coffee */
-  --chart-3: #cd853f; /* Light coffee */
-  --chart-4: #deb887; /* Burlywood */
-  --chart-5: #f5deb3; /* Wheat */
+  /* Chart colors - rich coffee palette */
+  --chart-1: #6F4E37; /* Deep coffee brown */
+  --chart-2: #A0522D; /* Sienna coffee */
+  --chart-3: #8B4513; /* Saddle brown */
+  --chart-4: #CD853F; /* Peru */
+  --chart-5: #DEB887; /* Burlywood */
   
   --radius: 0.75rem; /* More rounded for modern look */
   
-  /* Sidebar - dark coffee theme */
-  --sidebar: #2d1810; /* Dark coffee brown */
-  --sidebar-foreground: #f5f1eb; /* Light cream */
-  --sidebar-primary: #d2691e; /* Golden coffee */
-  --sidebar-primary-foreground: #fdfcfb; /* Cream */
-  --sidebar-accent: #3e2723; /* Darker coffee */
-  --sidebar-accent-foreground: #f5f1eb; /* Light cream */
-  --sidebar-border: #4a2c20; /* Coffee border */
-  --sidebar-ring: #d2691e; /* Golden coffee focus */
+  /* Sidebar - rich coffee theme */
+  --sidebar: #3c2415; /* Deep espresso brown */
+  --sidebar-foreground: #e8ddd0; /* Warm coffee with milk */
+  --sidebar-primary: #A0522D; /* Sienna coffee */
+  --sidebar-primary-foreground: #faf8f5; /* Warm cream */
+  --sidebar-accent: #5d4037; /* Dark coffee */
+  --sidebar-accent-foreground: #e8ddd0; /* Warm coffee with milk */
+  --sidebar-border: #6d4c41; /* Coffee brown border */
+  --sidebar-ring: #A0522D; /* Sienna coffee focus */
 }
 
 .dark {
-  /* Dark Coffee Theme - Rich and Sophisticated */
-  --background: #1a0f0a; /* Deep coffee dark */
-  --foreground: #f5f1eb; /* Light cream */
-  --card: #2d1810; /* Coffee brown cards */
-  --card-foreground: #f5f1eb; /* Light cream on cards */
-  --popover: #2d1810; /* Coffee brown popover */
-  --popover-foreground: #f5f1eb; /* Light cream in popovers */
+  /* Dark Coffee Theme - Rich Espresso Night */
+  --background: #2c1810; /* Deep coffee dark */
+  --foreground: #e8ddd0; /* Warm coffee with milk */
+  --card: #3c2415; /* Deep espresso cards */
+  --card-foreground: #e8ddd0; /* Warm coffee with milk on cards */
+  --popover: #3c2415; /* Deep espresso popover */
+  --popover-foreground: #e8ddd0; /* Warm coffee with milk in popovers */
   
-  --primary: #d2691e; /* Golden coffee */
-  --primary-foreground: #1a0f0a; /* Dark background text */
-  --secondary: #3e2723; /* Darker coffee */
-  --secondary-foreground: #f5f1eb; /* Light cream on secondary */
-  --muted: #3e2723; /* Darker coffee muted */
-  --muted-foreground: #a08d7a; /* Medium coffee cream */
+  --primary: #A0522D; /* Sienna coffee */
+  --primary-foreground: #2c1810; /* Deep coffee dark text */
+  --secondary: #5d4037; /* Dark coffee */
+  --secondary-foreground: #e8ddd0; /* Warm coffee with milk on secondary */
+  --muted: #4a2c20; /* Dark roasted coffee muted */
+  --muted-foreground: #bcaaa0; /* Light coffee cream */
   
-  --accent: #cd853f; /* Light coffee accent */
-  --accent-foreground: #1a0f0a; /* Dark text on accent */
+  --accent: #8B4513; /* Saddle brown accent */
+  --accent-foreground: #faf8f5; /* Warm cream text on accent */
   
   --destructive: #ef4444; /* Brighter red for dark theme */
-  --destructive-foreground: #f5f1eb; /* Light cream text */
+  --destructive-foreground: #e8ddd0; /* Warm coffee with milk text */
   
-  --border: #4a2c20; /* Coffee brown border */
-  --input: #3e2723; /* Dark coffee input */
-  --ring: #d2691e; /* Golden coffee focus ring */
+  --border: #6d4c41; /* Coffee brown border */
+  --input: #5d4037; /* Dark coffee input */
+  --ring: #A0522D; /* Sienna coffee focus ring */
   
-  --chart-1: #d2691e; /* Golden coffee */
-  --chart-2: #cd853f; /* Light coffee */
-  --chart-3: #deb887; /* Burlywood */
-  --chart-4: #f4a460; /* Sandy brown */
-  --chart-5: #f5deb3; /* Wheat */
+  --chart-1: #A0522D; /* Sienna coffee */
+  --chart-2: #8B4513; /* Saddle brown */
+  --chart-3: #CD853F; /* Peru */
+  --chart-4: #DEB887; /* Burlywood */
+  --chart-5: #F5DEB3; /* Wheat */
   
-  --sidebar: #1a0f0a; /* Deep coffee dark */
-  --sidebar-foreground: #f5f1eb; /* Light cream */
-  --sidebar-primary: #d2691e; /* Golden coffee */
-  --sidebar-primary-foreground: #1a0f0a; /* Dark text */
-  --sidebar-accent: #2d1810; /* Coffee brown */
-  --sidebar-accent-foreground: #f5f1eb; /* Light cream */
-  --sidebar-border: #3e2723; /* Darker coffee border */
-  --sidebar-ring: #d2691e; /* Golden coffee focus */
+  --sidebar: #2c1810; /* Deep coffee dark */
+  --sidebar-foreground: #e8ddd0; /* Warm coffee with milk */
+  --sidebar-primary: #A0522D; /* Sienna coffee */
+  --sidebar-primary-foreground: #2c1810; /* Deep coffee dark text */
+  --sidebar-accent: #3c2415; /* Deep espresso */
+  --sidebar-accent-foreground: #e8ddd0; /* Warm coffee with milk */
+  --sidebar-border: #5d4037; /* Dark coffee border */
+  --sidebar-ring: #A0522D; /* Sienna coffee focus */
 }
 
 @theme inline {
@@ -158,55 +158,55 @@
   .font-nunito { font-family: var(--font-nunito), sans-serif; }
   .font-plus-jakarta { font-family: var(--font-plus-jakarta-sans), sans-serif; }
   
-  /* Enhanced Coffee Theme Colors */
-  .bg-coffee-50 { background-color: #fefdfb; }
-  .bg-coffee-100 { background-color: #f9f6f0; }
-  .bg-coffee-200 { background-color: #f1e8d9; }
-  .bg-coffee-300 { background-color: #e6d7c3; }
-  .bg-coffee-400 { background-color: #d4c4a8; }
-  .bg-coffee-500 { background-color: #c4a484; }
-  .bg-coffee-600 { background-color: #a67c52; }
-  .bg-coffee-700 { background-color: #8b4513; }
-  .bg-coffee-800 { background-color: #6f3611; }
-  .bg-coffee-900 { background-color: #4a240b; }
+  /* Enhanced Rich Coffee Theme Colors */
+  .bg-coffee-50 { background-color: #faf8f5; }
+  .bg-coffee-100 { background-color: #f0ebe2; }
+  .bg-coffee-200 { background-color: #e8ddd0; }
+  .bg-coffee-300 { background-color: #d4c4a8; }
+  .bg-coffee-400 { background-color: #bcaaa0; }
+  .bg-coffee-500 { background-color: #a0522d; }
+  .bg-coffee-600 { background-color: #8b4513; }
+  .bg-coffee-700 { background-color: #6f4e37; }
+  .bg-coffee-800 { background-color: #5d4037; }
+  .bg-coffee-900 { background-color: #3c2415; }
   
-  .text-coffee-50 { color: #fefdfb; }
-  .text-coffee-100 { color: #f9f6f0; }
-  .text-coffee-200 { color: #f1e8d9; }
-  .text-coffee-300 { color: #e6d7c3; }
-  .text-coffee-400 { color: #d4c4a8; }
-  .text-coffee-500 { color: #c4a484; }
-  .text-coffee-600 { color: #a67c52; }
-  .text-coffee-700 { color: #8b4513; }
-  .text-coffee-800 { color: #6f3611; }
-  .text-coffee-900 { color: #4a240b; }
+  .text-coffee-50 { color: #faf8f5; }
+  .text-coffee-100 { color: #f0ebe2; }
+  .text-coffee-200 { color: #e8ddd0; }
+  .text-coffee-300 { color: #d4c4a8; }
+  .text-coffee-400 { color: #bcaaa0; }
+  .text-coffee-500 { color: #a0522d; }
+  .text-coffee-600 { color: #8b4513; }
+  .text-coffee-700 { color: #6f4e37; }
+  .text-coffee-800 { color: #5d4037; }
+  .text-coffee-900 { color: #3c2415; }
   
-  .border-coffee-200 { border-color: #f1e8d9; }
-  .border-coffee-300 { border-color: #e6d7c3; }
-  .border-coffee-400 { border-color: #d4c4a8; }
+  .border-coffee-200 { border-color: #e8ddd0; }
+  .border-coffee-300 { border-color: #d4c4a8; }
+  .border-coffee-400 { border-color: #bcaaa0; }
   
-  /* Golden Coffee Accents */
-  .bg-gold-coffee { background-color: #d2691e; }
-  .text-gold-coffee { color: #d2691e; }
-  .border-gold-coffee { border-color: #d2691e; }
+  /* Rich Coffee Accents */
+  .bg-sienna-coffee { background-color: #a0522d; }
+  .text-sienna-coffee { color: #a0522d; }
+  .border-sienna-coffee { border-color: #a0522d; }
   
-  /* Coffee Gradients */
+  /* Rich Coffee Gradients */
   .bg-gradient-coffee { 
-    background: linear-gradient(135deg, #f9f6f0 0%, #e6d7c3 50%, #d4c4a8 100%); 
+    background: linear-gradient(135deg, #f0ebe2 0%, #e8ddd0 50%, #d4c4a8 100%); 
   }
   .bg-gradient-coffee-dark { 
-    background: linear-gradient(135deg, #8b4513 0%, #6f3611 50%, #4a240b 100%); 
+    background: linear-gradient(135deg, #6f4e37 0%, #5d4037 50%, #3c2415 100%); 
   }
   
-  /* Modern Coffee Shadows */
+  /* Rich Coffee Shadows */
   .shadow-coffee-sm { 
-    box-shadow: 0 1px 2px 0 rgba(139, 69, 19, 0.05); 
+    box-shadow: 0 1px 2px 0 rgba(111, 78, 55, 0.05); 
   }
   .shadow-coffee { 
-    box-shadow: 0 4px 6px -1px rgba(139, 69, 19, 0.1), 0 2px 4px -1px rgba(139, 69, 19, 0.06); 
+    box-shadow: 0 4px 6px -1px rgba(111, 78, 55, 0.1), 0 2px 4px -1px rgba(111, 78, 55, 0.06); 
   }
   .shadow-coffee-lg { 
-    box-shadow: 0 10px 15px -3px rgba(139, 69, 19, 0.1), 0 4px 6px -2px rgba(139, 69, 19, 0.05); 
+    box-shadow: 0 10px 15px -3px rgba(111, 78, 55, 0.1), 0 4px 6px -2px rgba(111, 78, 55, 0.05); 
   }
   
   /* Coffee Steam Animation */
@@ -222,7 +222,7 @@
     left: 50%;
     width: 2px;
     height: 20px;
-    background: linear-gradient(to top, transparent, rgba(210, 105, 30, 0.3), transparent);
+    background: linear-gradient(to top, transparent, rgba(160, 82, 45, 0.3), transparent);
     animation: steam 2s ease-in-out infinite;
     transform: translateX(-50%);
   }
@@ -234,7 +234,7 @@
     left: calc(50% + 8px);
     width: 2px;
     height: 15px;
-    background: linear-gradient(to top, transparent, rgba(210, 105, 30, 0.2), transparent);
+    background: linear-gradient(to top, transparent, rgba(160, 82, 45, 0.2), transparent);
     animation: steam 2s ease-in-out infinite 0.5s;
     transform: translateX(-50%);
   }
@@ -257,43 +257,43 @@
   
   .coffee-hover:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 25px -5px rgba(139, 69, 19, 0.1), 0 10px 10px -5px rgba(139, 69, 19, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(111, 78, 55, 0.1), 0 10px 10px -5px rgba(111, 78, 55, 0.04);
   }
   
-  /* Coffee Button Styles */
+  /* Rich Coffee Button Styles */
   .btn-coffee-primary {
-    background: linear-gradient(135deg, #8b4513, #6f3611);
-    color: #fdfcfb;
+    background: linear-gradient(135deg, #6f4e37, #5d4037);
+    color: #faf8f5;
     border: none;
     transition: all 0.3s ease;
   }
   
   .btn-coffee-primary:hover {
-    background: linear-gradient(135deg, #a67c52, #8b4513);
+    background: linear-gradient(135deg, #a0522d, #6f4e37);
     transform: translateY(-1px);
-    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+    box-shadow: 0 8px 25px rgba(111, 78, 55, 0.3);
   }
   
   .btn-coffee-secondary {
-    background: #f1e8d9;
-    color: #2d1810;
-    border: 1px solid #e6d7c3;
+    background: #e8ddd0;
+    color: #3c2415;
+    border: 1px solid #d4c4a8;
     transition: all 0.3s ease;
   }
   
   .btn-coffee-secondary:hover {
-    background: #e6d7c3;
-    border-color: #d4c4a8;
+    background: #d4c4a8;
+    border-color: #bcaaa0;
     transform: translateY(-1px);
   }
   
-  /* Modern Card Styles */
+  /* Modern Coffee Card Styles */
   .card-coffee {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(248, 245, 240, 0.95);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(230, 215, 195, 0.3);
+    border: 1px solid rgba(212, 196, 168, 0.3);
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(139, 69, 19, 0.08);
+    box-shadow: 0 8px 32px rgba(111, 78, 55, 0.08);
   }
   
   /* Responsive Utilities */
@@ -310,12 +310,12 @@
   /* Typography */
   h1, h2, h3, h4, h5, h6, .heading { 
     font-family: var(--font-plus-jakarta-sans), sans-serif; 
-    color: #2d1810;
+    color: #3c2415;
     font-weight: 600;
   }
   
   .text-gradient-coffee {
-    background: linear-gradient(135deg, #8b4513, #d2691e);
+    background: linear-gradient(135deg, #6f4e37, #a0522d);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

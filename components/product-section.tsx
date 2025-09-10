@@ -27,35 +27,22 @@ function ProductItem({ product, index, isReversed }: {
       >
         {/* Product Image */}
         <div className="w-full lg:w-1/2">
-          <div className="relative group overflow-hidden rounded-3xl shadow-coffee-lg coffee-hover">
+          <div className="relative group overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300">
             <img
               src={product.image || "/placeholder.svg"}
               alt={product.title}
               className="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-coffee-900/70 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent" />
             
-            {/* Enhanced Coffee Steam Effect */}
+            {/* Steam Effect */}
             <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               <div className="flex space-x-2">
                 {[...Array(4)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-1 h-16 bg-gradient-to-t from-gold-coffee/70 via-coffee-400/50 to-transparent rounded-full animate-pulse coffee-steam"
+                    className="w-1 h-16 bg-gradient-to-t from-primary/70 via-accent/50 to-transparent rounded-full animate-pulse"
                     style={{ animationDelay: `${i * 300}ms` }}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Coffee Bean Decoration */}
-            <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div className="flex space-x-1">
-                {[...Array(3)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-2 h-3 bg-gold-coffee/30 rounded-full transform rotate-45"
-                    style={{ animationDelay: `${i * 100}ms` }}
                   />
                 ))}
               </div>
@@ -66,20 +53,20 @@ function ProductItem({ product, index, isReversed }: {
         {/* Product Content */}
         <div className="w-full lg:w-1/2 space-y-8">
           <div className="space-y-6">
-            <h3 className="text-3xl lg:text-4xl font-plus-jakarta font-bold text-gradient-coffee leading-tight">
+            <h3 className="text-3xl lg:text-4xl font-plus-jakarta font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent leading-tight">
               {product.title}
             </h3>
-            <p className="text-lg text-coffee-600 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               {product.description}
             </p>
           </div>
 
-          {/* Features with Coffee Theme */}
+          {/* Features */}
           <div className="flex flex-wrap gap-3">
             {product.features.map((feature, idx) => (
               <span
                 key={idx}
-                className="px-4 py-2 bg-coffee-100 text-coffee-800 rounded-full text-sm font-semibold border border-coffee-200 coffee-hover cursor-default"
+                className="px-4 py-2 bg-secondary text-foreground rounded-full text-sm font-semibold border border-border hover:bg-muted transition-colors duration-200 cursor-default"
               >
                 {feature}
               </span>
@@ -88,7 +75,7 @@ function ProductItem({ product, index, isReversed }: {
 
           <Button 
             onClick={() => setSelectedProduct(product)}
-            className="btn-coffee-primary px-10 py-4 text-lg shadow-coffee-lg hover:shadow-coffee transform hover:scale-105 rounded-2xl"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-4 text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 rounded-2xl"
           >
             Learn More
           </Button>
@@ -108,9 +95,9 @@ export default function ProductSection() {
   const [headerRef, headerInView] = useInView<HTMLDivElement>({ threshold: 0.2 })
   
   return (
-    <section id="products" className="py-24 bg-coffee-50/30">
+    <section id="products" className="py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header with Coffee Theme */}
+        {/* Section Header */}
         <div 
           ref={headerRef}
           className={`text-center mb-24 transition-all duration-1000 ${
@@ -119,17 +106,10 @@ export default function ProductSection() {
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="inline-flex items-center gap-6 mb-8">
-            <div className="w-20 h-20 rounded-3xl bg-gradient-coffee-dark flex items-center justify-center shadow-coffee-lg coffee-hover">
-              <div className="w-10 h-10 rounded-2xl bg-coffee-50/20 backdrop-blur-sm flex items-center justify-center">
-                <div className="w-4 h-4 rounded-full bg-gold-coffee animate-pulse" />
-              </div>
-            </div>
-            <h2 className="text-4xl lg:text-6xl font-plus-jakarta font-bold text-gradient-coffee">
-              Our Premium Roasting Equipment
-            </h2>
-          </div>
-          <p className="text-xl lg:text-2xl text-coffee-600 max-w-5xl mx-auto leading-relaxed font-medium">
+          <h2 className="text-4xl lg:text-6xl font-plus-jakarta font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-8">
+            Our Premium Roasting Equipment
+          </h2>
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-5xl mx-auto leading-relaxed font-medium">
             Discover our comprehensive range of professional roasting equipment designed for commercial and industrial
             applications. Each machine is engineered for precision, efficiency, and reliability.
           </p>

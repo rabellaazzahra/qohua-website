@@ -74,14 +74,6 @@ export default function HeroCarousel() {
             {/* Content */}
             <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-6xl w-full">
-                <div className="inline-flex items-center gap-4 mb-4 sm:mb-6">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-secondary/20 backdrop-blur-sm flex items-center justify-center">
-                      <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-primary animate-pulse" />
-                    </div>
-                  </div>
-                </div>
-                
                 <div className="mb-2 sm:mb-4">
                   <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm sm:text-base md:text-lg text-primary font-bold mb-2 sm:mb-4 tracking-wide backdrop-blur-sm">
                     {item.subtitle}
@@ -92,9 +84,6 @@ export default function HeroCarousel() {
                   {item.title}
                 </h2>
                 
-                <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 mb-6 sm:mb-8 max-w-3xl mx-auto font-medium leading-relaxed">
-                  Premium roasting equipment for exceptional coffee experiences
-                </p>
               </div>
             </div>
           </div>

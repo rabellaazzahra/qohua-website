@@ -25,7 +25,7 @@ export default function VideoSection() {
         <div className="max-w-4xl mx-auto">
           <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
             <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              src="https://www.youtube.com/embed/sjcbDQP91_A"
               title="RoastPro Equipment Demo"
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -19,7 +19,7 @@ export interface ProductData {
 export const productData: ProductData[] = [
   {
     id: "roastmaster-pro-500",
-    title: "RoastMaster Pro 500",
+    title: "Roastrix 400 Reguler",
     subtitle: "Discover our premium line of commercial coffee roasting equipment designed for the modern roastery",
     image: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&h=600&fit=crop",
     description: "Our flagship commercial coffee roaster combines precision engineering with intuitive controls. Perfect for high-volume roasting operations that demand consistency and quality.",
@@ -42,7 +42,7 @@ export const productData: ProductData[] = [
   },
   {
     id: "nutroast-industrial-1000",
-    title: "NutRoast Industrial 1000",
+    title: "Roastrix 400 Pro",
     subtitle: "Advanced automated systems for consistent, high-quality grain roasting at commercial scale",
     image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop", 
     description: "State-of-the-art automated roasting system designed for consistent, high-volume grain processing. Features advanced sensors and AI-driven optimization.",
@@ -65,7 +65,7 @@ export const productData: ProductData[] = [
   },
   {
     id: "grainroast-automated",
-    title: "GrainRoast Automated",
+    title: "Pourfect 60",
     subtitle: "Cutting-edge technology combined with time-honored roasting techniques for perfect results",
     image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=600&fit=crop",
     description: "Purpose-built for nut roasting operations with precise temperature control and even heat distribution. Ideal for almonds, peanuts, cashews, and specialty nuts.",
@@ -88,7 +88,7 @@ export const productData: ProductData[] = [
   },
   {
     id: "espressoroast-compact",
-    title: "EspressoRoast Compact",
+    title: "Koffie Buddy",
     subtitle: "Supporting the entire coffee journey with professional-grade roasting solutions",
     image: "https://images.unsplash.com/photo-1610632380989-680fe40816c6?w=800&h=600&fit=crop",
     description: "Comprehensive grain processing system that handles everything from raw grain intake to finished product packaging. Perfect for large-scale operations.",
@@ -111,7 +111,7 @@ export const productData: ProductData[] = [
   },
   {
     id: "megaroast-industrial-2000",
-    title: "MegaRoast Industrial 2000",
+    title: "I Scale uno electric",
     subtitle: "Ultimate solution for large-scale commercial operations",
     image: "https://images.unsplash.com/photo-1525648199074-cee30ba79a4a?w=800&h=600&fit=crop",
     description: "The ultimate solution for large-scale commercial operations. Combines massive capacity with precision control, delivering consistent results across enormous batches.",
@@ -136,8 +136,8 @@ export const productData: ProductData[] = [
 
 // Company information
 export const companyInfo = {
-  name: "RoastPro Equipment",
-  tagline: "Professional Roasting Solutions",
+  name: "Qohua",
+  tagline: "From Green Bean to the Cup",
   description: "Leading manufacturer of commercial coffee and grain roasting equipment, serving roasteries and food processing facilities worldwide.",
   founded: "1985",
   headquarters: "Portland, Oregon",

@@ -16,8 +16,8 @@ const nunito = Nunito({
 })
 
 export const metadata: Metadata = {
-  title: "RoastPro Equipment - Professional Roasting Solutions",
-  description: "Premium roasting equipment for commercial and industrial applications",
+  title: "Qohua",
+  description: "From Green Bean to The Cup",
   generator: "v0.app",
 }
 
