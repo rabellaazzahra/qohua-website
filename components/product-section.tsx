@@ -63,7 +63,7 @@ function ProductItem({ product, index, isReversed }: {
 
           {/* Features */}
           <div className="flex flex-wrap gap-3">
-            {product.features.map((feature, idx) => (
+            {product.shortFeatures.map((feature, idx) => (
               <span
                 key={idx}
                 className="px-4 py-2 bg-secondary text-foreground rounded-full text-sm font-semibold border border-border hover:bg-muted transition-colors duration-200 cursor-default"

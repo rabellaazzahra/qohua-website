@@ -50,9 +50,9 @@ export default function HeroCarousel() {
               <img 
                 src={item.image} 
                 alt={item.title} 
-                className="w-full h-full object-cover opacity-25" 
+                className="w-full h-full object-cover opacity-40" 
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-secondary/60 via-transparent to-muted/40" />
+              <div className="absolute inset-0 bg-gradient-to-r from-secondary/40 via-transparent to-muted/20" />
             </div>
             
             {/* Enhanced Steam Animation */}

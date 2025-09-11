@@ -21,27 +21,27 @@ const productDetails: Record<string, {
   "Roastrix 400 Reguler": {
     fullDescription: "The Roastrix 400 Reguler represents the pinnacle of coffee roasting technology. Engineered for precision and consistency, this commercial-grade roaster features advanced temperature control systems and automated monitoring to ensure perfect roasting profiles every time.",
     specifications: [
-      "Capacity: 500g batch size",
-      "Temperature Range: 100°C - 250°C",
-      "Roasting Time: 8-15 minutes",
-      "Power: 220V, 3.2kW",
-      "Dimensions: 80cm x 60cm x 100cm",
-      "Weight: 120kg"
+      "Heat Transfer: Drum",
+      "Heater: Electric",
+      "Power: 1000 Watt",
+      "Voltage: 110 - 240V",
+      "Max Roasting Quantity: 400 gram",
+      "Best Roasting Quantity: 100 - 300 gram"
     ],
     features: [
-      "Digital temperature control with ±1°C precision",
-      "Programmable roasting profiles",
-      "Automatic cooling system",
-      "Smoke suppression technology",
-      "Real-time data logging",
-      "Touch screen interface"
+      "Dilengkapi LCD 4.3\" touchscreen",
+      "Dapat terkoneksi ke Artisan apps melalui USB-C",
+      "Dapat terkoneksi dengan Roastrix Apps melalui BLE",
+      "Dual temperature channel monitoring (Drum & Bean temperature)",
+      "Full control: Manual Mode untuk mengatur suhu, putaran drum dan air flow",
+      "Dilengkapi fitur save profile untuk Auto Mode dengan satu klik"
     ],
     benefits: [
-      "Consistent roasting quality",
-      "Reduced energy consumption",
-      "Easy operation and maintenance",
-      "Enhanced flavor development",
-      "Professional grade reliability"
+      "Kontrol penuh terhadap proses roasting",
+      "Konsistensi hasil dengan save profile",
+      "Monitoring dual temperature real-time",
+      "Fleksibilitas Manual dan Auto Mode",
+      "Konektivitas modern dengan USB-C dan BLE"
     ]
   },
   "Roastrix 400 Pro": {
@@ -184,7 +184,7 @@ export default function ProductDialog({ product, isOpen, onClose }: ProductDialo
           <div className="space-y-6">
             <div className="relative group hover:scale-[1.02] transition-transform duration-300">
               <img 
-                src={product.image || "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&h=600&fit=crop"} 
+                src={product.image || "/placeholder.svg"} 
                 alt={product.title}
                 className="w-full h-72 object-cover rounded-2xl shadow-lg border border-border"
               />

@@ -6,11 +6,14 @@ export interface ProductData {
   image: string;
   description: string;
   features: string[];
+  shortFeatures: string[];
   specifications: {
     capacity: string;
     power: string;
-    dimensions: string;
-    weight: string;
+    dimensions?: string;
+    weight?: string;
+    heatTransfer?: string;
+    heater?: string;
   };
   ctaText: string;
   ctaLink: string;
@@ -21,21 +24,29 @@ export const productData: ProductData[] = [
     id: "roastmaster-pro-500",
     title: "Roastrix 400 Reguler",
     subtitle: "Discover our premium line of commercial coffee roasting equipment designed for the modern roastery",
-    image: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&h=600&fit=crop",
+    image: "/images/products/roastrix-400-reguler.jpg",
     description: "Our flagship commercial coffee roaster combines precision engineering with intuitive controls. Perfect for high-volume roasting operations that demand consistency and quality.",
     features: [
-      "Advanced heat profiling system",
-      "Automated batch tracking",
-      "Energy-efficient design",
-      "Real-time monitoring dashboard",
-      "Custom roasting profiles",
-      "Easy maintenance access"
+      "Dilengkapi LCD 4.3\" touchscreen",
+      "Dapat terkoneksi ke Artisan apps melalui USB-C",
+      "Dapat terkoneksi dengan Roastrix Apps melalui BLE",
+      "Dual temperature channel monitoring (Drum & Bean temperature)",
+      "Full control: Manual Mode untuk mengatur suhu, putaran drum dan air flow",
+      "Dilengkapi fitur save profile untuk Auto Mode dengan satu klik"
+    ],
+    shortFeatures: [
+      "LCD 4.3\" touchscreen",
+      "USB-C & BLE connectivity",
+      "Dual temperature monitoring",
+      "Manual & Auto mode",
+      "Save profile feature",
+      "Full control system"
     ],
     specifications: {
-      capacity: "500g batch size",
-      power: "220V, 3.2kW",
-      dimensions: "80cm x 60cm x 100cm",
-      weight: "120kg"
+      capacity: "Max 400g, Best 100-300g",
+      power: "1000W, 110-240V",
+      heatTransfer: "Drum",
+      heater: "Electric"
     },
     ctaText: "Learn More",
     ctaLink: "#products"
@@ -44,7 +55,7 @@ export const productData: ProductData[] = [
     id: "nutroast-industrial-1000",
     title: "Roastrix 400 Pro",
     subtitle: "Advanced automated systems for consistent, high-quality grain roasting at commercial scale",
-    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop", 
+    image: "/images/products/roastrix-400-pro.jpg", 
     description: "State-of-the-art automated roasting system designed for consistent, high-volume grain processing. Features advanced sensors and AI-driven optimization.",
     features: [
       "Heavy-duty stainless steel construction",
@@ -52,6 +63,14 @@ export const productData: ProductData[] = [
       "Automated loading and unloading",
       "Advanced safety systems",
       "Remote monitoring capability",
+      "Energy-efficient design"
+    ],
+    shortFeatures: [
+      "Stainless steel construction",
+      "Multi-zone heating control",
+      "Automated loading/unloading",
+      "Advanced safety systems",
+      "Remote monitoring",
       "Energy-efficient design"
     ],
     specifications: {
@@ -67,7 +86,7 @@ export const productData: ProductData[] = [
     id: "grainroast-automated",
     title: "Pourfect 60",
     subtitle: "Cutting-edge technology combined with time-honored roasting techniques for perfect results",
-    image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=600&fit=crop",
+    image: "/images/products/pourfect-60.jpg",
     description: "Purpose-built for nut roasting operations with precise temperature control and even heat distribution. Ideal for almonds, peanuts, cashews, and specialty nuts.",
     features: [
       "Fully automated operation",
@@ -75,6 +94,14 @@ export const productData: ProductData[] = [
       "Predictive maintenance alerts",
       "Quality control sensors",
       "Recipe management system",
+      "Mobile app integration"
+    ],
+    shortFeatures: [
+      "Fully automated operation",
+      "AI-powered optimization",
+      "Predictive maintenance",
+      "Quality control sensors",
+      "Recipe management",
       "Mobile app integration"
     ],
     specifications: {
@@ -90,12 +117,20 @@ export const productData: ProductData[] = [
     id: "espressoroast-compact",
     title: "Koffie Buddy",
     subtitle: "Supporting the entire coffee journey with professional-grade roasting solutions",
-    image: "https://images.unsplash.com/photo-1610632380989-680fe40816c6?w=800&h=600&fit=crop",
+    image: "/images/products/koffie-buddy.jpg",
     description: "Comprehensive grain processing system that handles everything from raw grain intake to finished product packaging. Perfect for large-scale operations.",
     features: [
       "Compact footprint design",
       "Precision temperature control",
       "Manual and auto modes",
+      "Built-in cooling system",
+      "Easy cleaning access",
+      "Quiet operation"
+    ],
+    shortFeatures: [
+      "Compact design",
+      "Precision temperature control",
+      "Manual & auto modes",
       "Built-in cooling system",
       "Easy cleaning access",
       "Quiet operation"
@@ -113,9 +148,17 @@ export const productData: ProductData[] = [
     id: "megaroast-industrial-2000",
     title: "I Scale uno electric",
     subtitle: "Ultimate solution for large-scale commercial operations",
-    image: "https://images.unsplash.com/photo-1525648199074-cee30ba79a4a?w=800&h=600&fit=crop",
+    image: "/images/products/i-scale-uno-electric.jpg",
     description: "The ultimate solution for large-scale commercial operations. Combines massive capacity with precision control, delivering consistent results across enormous batches.",
     features: [
+      "Massive processing capacity",
+      "Multi-stage roasting zones",
+      "Advanced control systems",
+      "Automated material handling",
+      "Integrated quality monitoring",
+      "Energy recovery systems"
+    ],
+    shortFeatures: [
       "Massive processing capacity",
       "Multi-stage roasting zones",
       "Advanced control systems",
