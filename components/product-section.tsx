@@ -31,7 +31,7 @@ function ProductItem({ product, index, isReversed }: {
             <img
               src={product.image || "/placeholder.svg"}
               alt={product.title}
-              className="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+              className="w-full h-80 lg:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent" />
             

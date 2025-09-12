@@ -14,7 +14,7 @@ export default function HeroCarousel() {
   }, [])
 
   return (
-    <div className="relative h-[calc(100dvh-4.5rem)] overflow-hidden bg-gradient-to-br from-secondary via-muted to-secondary">
+    <div id="hero" className="relative h-[calc(100dvh-4.5rem)] overflow-hidden bg-gradient-to-br from-secondary via-muted to-secondary">
       {/* Modern Pattern Background */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-8 h-8 rounded-full border-2 border-primary transform rotate-12" />
@@ -50,7 +50,7 @@ export default function HeroCarousel() {
               <img 
                 src={item.image} 
                 alt={item.title} 
-                className="w-full h-full object-cover opacity-40" 
+                className="w-full h-full object-cover object-center opacity-40" 
               />
               <div className="absolute inset-0 bg-gradient-to-r from-secondary/40 via-transparent to-muted/20" />
             </div>
@@ -84,6 +84,31 @@ export default function HeroCarousel() {
                   {item.title}
                 </h2>
                 
+                <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
+                  {item.description}
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <button 
+                    onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-3"
+                  >
+                    <span>Explore Products</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </button>
+                  <button 
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="px-8 py-4 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-3"
+                  >
+                    <span>Get Quote</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

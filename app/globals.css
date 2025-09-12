@@ -135,11 +135,53 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* Loading states */
+  .loading {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .loading-delayed {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.3s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  a, button, [role="button"] {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* Focus styles for accessibility */
+  a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 

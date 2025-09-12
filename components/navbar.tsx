@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Home, Package, Info, Headphones, Phone } from "lucide-react"
 import { navigationItems, companyInfo } from "@/lib/data"
+import Image from "next/image"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -44,15 +45,16 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-18">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
-                <Package className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-plus-jakarta font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  {companyInfo.name}
-                </h1>
-                <p className="text-xs text-muted-foreground font-medium">From Green Bean to the cup</p>
+            <div className="flex items-center">
+              <div className="relative">
+                <Image
+                  src="/qohua-logo.png"
+                  alt="Qohua Logo"
+                  width={180}
+                  height={60}
+                  className="h-14 w-auto"
+                  priority
+                />
               </div>
             </div>
           </div>

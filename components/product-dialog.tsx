@@ -3,8 +3,10 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Award, Settings, Zap, Shield, Coffee } from "lucide-react"
+import { Award, Settings, Zap, Shield, Coffee, Download, QrCode, ChevronLeft, ChevronRight } from "lucide-react"
 import { type ProductData } from "@/lib/data"
+import { useState } from "react"
+import Image from "next/image"
 
 interface ProductDialogProps {
   product: ProductData | null
@@ -12,149 +14,18 @@ interface ProductDialogProps {
   onClose: () => void
 }
 
-const productDetails: Record<string, {
-  fullDescription: string
-  specifications: string[]
-  features: string[]
-  benefits: string[]
-}> = {
-  "Roastrix 400 Reguler": {
-    fullDescription: "The Roastrix 400 Reguler represents the pinnacle of coffee roasting technology. Engineered for precision and consistency, this commercial-grade roaster features advanced temperature control systems and automated monitoring to ensure perfect roasting profiles every time.",
-    specifications: [
-      "Heat Transfer: Drum",
-      "Heater: Electric",
-      "Power: 1000 Watt",
-      "Voltage: 110 - 240V",
-      "Max Roasting Quantity: 400 gram",
-      "Best Roasting Quantity: 100 - 300 gram"
-    ],
-    features: [
-      "Dilengkapi LCD 4.3\" touchscreen",
-      "Dapat terkoneksi ke Artisan apps melalui USB-C",
-      "Dapat terkoneksi dengan Roastrix Apps melalui BLE",
-      "Dual temperature channel monitoring (Drum & Bean temperature)",
-      "Full control: Manual Mode untuk mengatur suhu, putaran drum dan air flow",
-      "Dilengkapi fitur save profile untuk Auto Mode dengan satu klik"
-    ],
-    benefits: [
-      "Kontrol penuh terhadap proses roasting",
-      "Konsistensi hasil dengan save profile",
-      "Monitoring dual temperature real-time",
-      "Fleksibilitas Manual dan Auto Mode",
-      "Konektivitas modern dengan USB-C dan BLE"
-    ]
-  },
-  "Roastrix 400 Pro": {
-    fullDescription: "Built for high-volume industrial applications, the Roastrix 400 Pro delivers exceptional performance for large-scale grain roasting operations. Its robust construction and advanced heating systems ensure uniform roasting across large batches.",
-    specifications: [
-      "Capacity: 1000kg batch size", 
-      "Temperature Range: 80°C - 220°C",
-      "Roasting Time: 15-30 minutes",
-      "Power: 380V, 8.5kW",
-      "Dimensions: 150cm x 100cm x 180cm",
-      "Weight: 350kg"
-    ],
-    features: [
-      "Heavy-duty stainless steel construction",
-      "Multi-zone heating control",
-      "Automated loading and unloading",
-      "Advanced safety systems",
-      "Remote monitoring capability",
-      "Energy-efficient design"
-    ],
-    benefits: [
-      "Maximum productivity",
-      "Uniform roasting results",
-      "Minimal operator intervention",
-      "Cost-effective operation",
-      "Exceptional durability"
-    ]
-  },
-  "Pourfect 60": {
-    fullDescription: "The future of grain roasting is here. Our fully automated Pourfect 60 system combines cutting-edge technology with intuitive controls to deliver perfect results with minimal human intervention. Ideal for medium to large-scale operations.",
-    specifications: [
-      "Capacity: 750kg batch size",
-      "Temperature Range: 90°C - 200°C", 
-      "Roasting Time: 12-25 minutes",
-      "Power: 380V, 6.8kW",
-      "Dimensions: 120cm x 80cm x 150cm",
-      "Weight: 280kg"
-    ],
-    features: [
-      "Fully automated operation",
-      "AI-powered roasting optimization",
-      "Predictive maintenance alerts",
-      "Quality control sensors",
-      "Recipe management system",
-      "Mobile app integration"
-    ],
-    benefits: [
-      "Zero human error",
-      "Optimized roasting profiles",
-      "Predictable maintenance",
-      "Superior quality control",
-      "Remote operation capability"
-    ]
-  },
-  "Koffie Buddy": {
-    fullDescription: "Perfect for boutique coffee shops and small-scale roasters, the Koffie Buddy delivers professional-grade results in a space-saving design. Experience the perfect balance of quality, efficiency, and affordability.",
-    specifications: [
-      "Capacity: 250g batch size",
-      "Temperature Range: 120°C - 240°C",
-      "Roasting Time: 6-12 minutes", 
-      "Power: 220V, 2.1kW",
-      "Dimensions: 60cm x 45cm x 75cm",
-      "Weight: 65kg"
-    ],
-    features: [
-      "Compact footprint design",
-      "Precision temperature control",
-      "Manual and auto modes",
-      "Built-in cooling system",
-      "Easy cleaning access",
-      "Quiet operation"
-    ],
-    benefits: [
-      "Space-efficient design",
-      "Perfect for small batches",
-      "User-friendly operation",
-      "Consistent quality",
-      "Affordable investment"
-    ]
-  },
-  "I Scale uno electric": {
-    fullDescription: "The ultimate solution for large-scale commercial operations. The I Scale uno electric combines massive capacity with precision control, delivering consistent results across enormous batches while maintaining the highest quality standards.",
-    specifications: [
-      "Capacity: 2000kg batch size",
-      "Temperature Range: 70°C - 230°C",
-      "Roasting Time: 20-40 minutes",
-      "Power: 380V, 12.5kW", 
-      "Dimensions: 200cm x 150cm x 220cm",
-      "Weight: 580kg"
-    ],
-    features: [
-      "Massive processing capacity",
-      "Multi-stage roasting zones",
-      "Advanced control systems",
-      "Automated material handling",
-      "Integrated quality monitoring",
-      "Energy recovery systems"
-    ],
-    benefits: [
-      "Unmatched production capacity",
-      "Superior energy efficiency",
-      "Consistent large-batch quality",
-      "Minimal labor requirements",
-      "Maximum ROI potential"
-    ]
-  }
-}
-
 export default function ProductDialog({ product, isOpen, onClose }: ProductDialogProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  
   if (!product) return null
 
-  const details = productDetails[product.title]
-  if (!details) return null
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % product.images.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length)
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -180,15 +51,59 @@ export default function ProductDialog({ product, isOpen, onClose }: ProductDialo
           </DialogHeader>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-8">
-          {/* Left Column - Image and Description */}
+          {/* Left Column - Image Carousel and Description */}
           <div className="space-y-6">
-            <div className="relative group hover:scale-[1.02] transition-transform duration-300">
-              <img 
-                src={product.image || "/placeholder.svg"} 
-                alt={product.title}
-                className="w-full h-72 object-cover rounded-2xl shadow-lg border border-border"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+            {/* Image Carousel */}
+            <div className="relative group">
+              <div className="relative overflow-hidden rounded-2xl shadow-lg border border-border">
+                <Image 
+                  src={product.images[currentImageIndex]} 
+                  alt={`${product.title} - Image ${currentImageIndex + 1}`}
+                  width={600}
+                  height={400}
+                  className="w-full h-72 object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                
+                {/* Navigation Buttons */}
+                {product.images.length > 1 && (
+                  <>
+                    <Button
+                      onClick={prevImage}
+                      size="sm"
+                      variant="secondary"
+                      className="absolute left-2 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/80 hover:bg-background"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      onClick={nextImage}
+                      size="sm"
+                      variant="secondary"
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/80 hover:bg-background"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </Button>
+                  </>
+                )}
+              </div>
+              
+              {/* Image Indicators */}
+              {product.images.length > 1 && (
+                <div className="flex justify-center gap-2 mt-4">
+                  {product.images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                        index === currentImageIndex 
+                          ? 'bg-primary scale-125' 
+                          : 'bg-muted-foreground/30 hover:bg-muted-foreground/60'
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
             
             <div className="bg-muted p-6 rounded-2xl border border-border">
@@ -198,31 +113,7 @@ export default function ProductDialog({ product, isOpen, onClose }: ProductDialo
                 </div>
                 Product Overview
               </h3>
-              <p className="text-muted-foreground leading-relaxed text-base">{details.fullDescription}</p>
-            </div>
-
-            <div className="grid grid-cols-3 gap-4">
-              <div className="bg-muted p-4 rounded-xl text-center border border-border hover:bg-secondary transition-colors duration-200">
-                <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-3">
-                  <Zap className="w-6 h-6 text-primary" />
-                </div>
-                <div className="text-sm font-semibold text-foreground">High Performance</div>
-                <div className="text-xs text-muted-foreground mt-1">Superior efficiency</div>
-              </div>
-              <div className="bg-muted p-4 rounded-xl text-center border border-border hover:bg-secondary transition-colors duration-200">
-                <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-3">
-                  <Settings className="w-6 h-6 text-primary" />
-                </div>
-                <div className="text-sm font-semibold text-foreground">Advanced Control</div>
-                <div className="text-xs text-muted-foreground mt-1">Precise monitoring</div>
-              </div>
-              <div className="bg-muted p-4 rounded-xl text-center border border-border hover:bg-secondary transition-colors duration-200">
-                <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-3">
-                  <Shield className="w-6 h-6 text-primary" />
-                </div>
-                <div className="text-sm font-semibold text-foreground">Reliable Quality</div>
-                <div className="text-xs text-muted-foreground mt-1">Consistent results</div>
-              </div>
+              <p className="text-muted-foreground leading-relaxed text-base">{product.detailedDescription}</p>
             </div>
           </div>
 
@@ -237,10 +128,10 @@ export default function ProductDialog({ product, isOpen, onClose }: ProductDialo
                 Technical Specifications
               </h3>
               <div className="space-y-3">
-                {details.specifications.map((spec, index) => (
+                {Object.entries(product.specifications).map(([key, value], index) => (
                   <div key={index} className="flex justify-between items-center py-2 border-b border-border last:border-0">
-                    <span className="text-muted-foreground text-sm font-medium">{spec.split(':')[0]}:</span>
-                    <span className="text-foreground font-semibold text-sm">{spec.split(':')[1]}</span>
+                    <span className="text-muted-foreground text-sm font-medium">{key}:</span>
+                    <span className="text-foreground font-semibold text-sm">{value}</span>
                   </div>
                 ))}
               </div>
@@ -255,7 +146,7 @@ export default function ProductDialog({ product, isOpen, onClose }: ProductDialo
                 Key Features
               </h3>
               <div className="space-y-3">
-                {details.features.map((feature, index) => (
+                {product.features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-3 group">
                     <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0 group-hover:scale-125 transition-transform" />
                     <span className="text-muted-foreground text-sm leading-relaxed">{feature}</span>
@@ -264,21 +155,37 @@ export default function ProductDialog({ product, isOpen, onClose }: ProductDialo
               </div>
             </div>
 
-            {/* Benefits */}
-            <div className="bg-gradient-to-br from-secondary to-muted p-6 rounded-2xl border border-border hover:from-muted hover:to-secondary transition-colors duration-200">
+            {/* Download Section */}
+            <div className="bg-primary/5 p-6 rounded-2xl border border-primary/20">
               <h3 className="text-xl font-bold text-foreground mb-5 flex items-center gap-3">
                 <div className="p-2 bg-primary/20 rounded-lg">
-                  <Award className="w-5 h-5 text-primary" />
+                  <Download className="w-5 h-5 text-primary" />
                 </div>
-                Key Benefits
+                Downloads & Resources
               </h3>
-              <div className="space-y-3">
-                {details.benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3 group">
-                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0 group-hover:scale-125 transition-transform" />
-                    <span className="text-foreground text-sm font-medium leading-relaxed">{benefit}</span>
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Product Brochure Download */}
+                <Button 
+                  asChild
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 group"
+                >
+                  <a href={product.brochureUrl} download className="flex items-center gap-3">
+                    <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    <span className="font-semibold">Brochure Product</span>
+                  </a>
+                </Button>
+
+                {/* QR Code Download */}
+                <Button 
+                  asChild
+                  variant="outline"
+                  className="w-full border-primary/30 hover:bg-primary/10 hover:border-primary transition-all duration-300 group"
+                >
+                  <a href={product.qrCodeUrl} download className="flex items-center gap-3">
+                    <QrCode className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="font-semibold text-foreground">QR</span>
+                  </a>
+                </Button>
               </div>
             </div>
           </div>

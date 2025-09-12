@@ -11,7 +11,7 @@ export default function Footer() {
         <div className={`grid md:grid-cols-4 gap-8 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-sidebar-primary">RoastPro</h3>
+            <h3 className="text-xl font-bold text-sidebar-primary">Qohua</h3>
             <p className="text-sm leading-relaxed">
               Premium roasting equipment for commercial and industrial applications. Quality, precision, and reliability
               you can trust.
@@ -24,22 +24,27 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="#" className="hover:text-sidebar-primary transition-colors">
-                  Coffee Roasters
+                  Roastrix 400 Reguler
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-sidebar-primary transition-colors">
-                  Nut Roasting Equipment
+                  Roastrix 400 Pro
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-sidebar-primary transition-colors">
-                  Grain Roasting Systems
+                  Pourfect 60
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-sidebar-primary transition-colors">
-                  Custom Solutions
+                  Koffie Buddy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-sidebar-primary transition-colors">
+                  I Scale uno electric
                 </a>
               </li>
             </ul>

@@ -13,8 +13,8 @@ export default function Home() {
       <Navbar />
       <HeroCarousel />
       <ProductSection />
-      <GallerySection />
       <VideoSection />
+      <GallerySection />
       <AboutSection />
       <ContactSection />
       <Footer />
